@@ -1,11 +1,3 @@
-FROM tomcat:9-jdk11-openjdk-slim
-
-ENV APP_HOME=/usr/local/tomcat/webapps/ROOT
-
-RUN rm -rf /usr/local/tomcat/webapps/*
-
-COPY target/myapp.war /usr/local/tomcat/webapps/ROOT.war
-
+FROM tomcat:9.0
+COPY target/*.war /usr/local/tomcat/webapps
 EXPOSE 8000
-
-CMD ["catalina.sh", "run"]
